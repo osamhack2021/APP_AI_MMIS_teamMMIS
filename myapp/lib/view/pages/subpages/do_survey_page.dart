@@ -36,6 +36,6 @@ class DoSurveyPage extends StatelessWidget {
     EXProvider p = EXProvider();
     print("34");
     Response response = await p.connect();
-    print('${response} a');
+    print('${response.body} a');
   }
 }
