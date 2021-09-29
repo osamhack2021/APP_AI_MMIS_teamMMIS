@@ -14,18 +14,15 @@
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="BRANCH:make_survey_in_myapp" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:main" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </select>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3f705a7e-f4d9-4f1d-abc9-5979b60a9a1e" name="Default Changelist" comment="설문조사 생성 만드는 중">
-      <change afterPath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/do_survey_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapp/lib/url_test.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/do_survey_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/lib/view/pages/subpages/do_survey_page.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -217,7 +214,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="make_survey_in_myapp" />
+                        <option value="main" />
                       </list>
                     </value>
                   </entry>
