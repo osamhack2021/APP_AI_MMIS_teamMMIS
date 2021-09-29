@@ -39,6 +39,7 @@ dependencies:
   table_calendar: ^3.0.2
   flutter_localizations:
     sdk: flutter
+  conditional_questions: ^2.0.0
 
 
 
