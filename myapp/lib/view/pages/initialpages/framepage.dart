@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:myapp/controller/menu_controller.dart';
+import 'package:myapp/controller/user_controller.dart';
 import 'package:myapp/user/user_ex.dart';
 import 'package:myapp/view/components/custom_drawer.dart';
 
@@ -17,21 +18,24 @@ class FramePage extends StatefulWidget {
 }
 
 class _FramePageState extends State<FramePage> {
+  final u = Get.put(UserController());
   final menuCon = Get.put(MenuController());
   int _selectedTapIndex = 0;
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      drawer: CustomDrawer(),
-      appBar: _buildAppBar(),
-      bottomNavigationBar: _buildBottomNavigationBar(),
-      body: SafeArea(
-        child: _selectedTapIndex == 0
-            ? HomePage()
-            : _selectedTapIndex == 1
-                ? ShowPhotoOfMealPage()
-                : SettingPage(),
+    return SafeArea(
+      child: Scaffold(
+        drawer: CustomDrawer(),
+        appBar: _buildAppBar(),
+        bottomNavigationBar: _buildBottomNavigationBar(),
+        body: SafeArea(
+          child: _selectedTapIndex == 0
+              ? HomePage()
+              : _selectedTapIndex == 1
+                  ? ShowPhotoOfMealPage()
+                  : SettingPage(),
+        ),
       ),
     );
   }
@@ -47,16 +51,16 @@ class _FramePageState extends State<FramePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              unit,
+              "${u.principal.value.unit}",
               style: TextStyle(color: Colors.white),
             ),
             Text(
-              "${classes} ${userName}님",
+              "${u.principal.value.rank} ${u.principal.value.username}님",
               style: TextStyle(color: Colors.white),
             ),
           ],
         ),
-        SizedBox(width: 4.w),
+        SizedBox(width: 8.w),
       ],
     );
   }

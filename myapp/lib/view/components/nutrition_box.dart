@@ -44,7 +44,8 @@ class NutritionBox extends StatelessWidget {
           Row(
             children: [
               Expanded(flex: 1, child: Text("지방 ${fat}g", style: _textStyle)),
-              Expanded(flex: 1, child: Text("나트륨 ${salt}g", style: _textStyle)),
+              Expanded(
+                  flex: 1, child: Text("나트륨 ${salt ?? 0}g", style: _textStyle)),
               Expanded(
                   flex: 1,
                   child: Text("콜레스테롤 ${cholesterol}g", style: _textStyle)),

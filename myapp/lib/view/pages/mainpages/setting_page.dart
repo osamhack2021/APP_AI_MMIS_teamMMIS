@@ -30,12 +30,6 @@ class SettingPage extends StatelessWidget {
             tap: () {
               Get.to(() => InnerSettingPage());
             }),
-        ConfigItem(
-            icon: Icons.analytics,
-            text: "예시4",
-            tap: () {
-              print("예시4");
-            }),
       ],
     );
   }

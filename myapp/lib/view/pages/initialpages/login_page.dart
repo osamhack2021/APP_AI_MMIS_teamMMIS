@@ -20,23 +20,32 @@ class LoginPage extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: ListView(
-          //아이디 비번 입력할떄 키보드가 올라와서 스크롤이 돼야함
           children: [
-            Image.asset(
-              "logo/logo_mmis.png",
-              fit: BoxFit.cover,
-            ),
             Center(
-              child: Text(
-                "군 급식 정보 체계",
-                style: TextStyle(
-                    fontSize: 32.w,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.lightGreen),
+              child: Column(
+                //아이디 비번 입력할떄 키보드가 올라와서 스크롤이 돼야함
+                children: [
+                  SizedBox(
+                    height: 30.h,
+                  ),
+                  Image.asset(
+                    "logo/logo_mmis.png",
+                    fit: BoxFit.cover,
+                  ),
+                  Center(
+                    child: Text(
+                      "군 급식 정보 체계",
+                      style: TextStyle(
+                          fontSize: 32.w,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.lightGreen),
+                    ),
+                  ),
+                  SizedBox(height: 16.w),
+                  _loginForm(), ////////////////////////밑에 만들어놈
+                ],
               ),
             ),
-            SizedBox(height: 16.w),
-            _loginForm(), ////////////////////////밑에 만들어놈
           ],
         ),
       ),

@@ -72,7 +72,7 @@ class MenuBox extends StatelessWidget {
   Widget _buildMenuHeader(String time) {
     return Text(
       "${getMonthDayAndWeekdayInKorean(dateAndTime)} $time",
-      style: TextStyle(fontSize: 8.sp),
+      style: TextStyle(fontSize: 11.sp),
     );
   }
 
@@ -82,7 +82,7 @@ class MenuBox extends StatelessWidget {
             child: Text(
               "등록된 메뉴 정보가 없습니다.",
               textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 8.sp),
+              style: TextStyle(fontSize: 11.sp),
             ),
           )
         : Expanded(
@@ -93,7 +93,11 @@ class MenuBox extends StatelessWidget {
                     menuList.length,
                     (index) => Text(
                       "${menuList[index]}",
-                      style: TextStyle(fontSize: 8.sp),
+                      style: TextStyle(
+                          fontSize: 11.sp,
+                          color: menuList[index] == "오리불고기"
+                              ? Colors.red
+                              : Colors.black),
                     ),
                   ),
                 )

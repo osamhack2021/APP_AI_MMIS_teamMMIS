@@ -106,6 +106,7 @@ class _DeductionCalendarState extends State<DeductionCalendar> {
             selectedDayPredicate: (day) => isSameDay(_selectedDay, day),
             onDaySelected: _onDaySelected,
             calendarBuilders: CalendarBuilders(
+              selectedBuilder: _selectedBuilder,
               markerBuilder: (context, date, events) {
                 if (events.isNotEmpty) {
                   return Container(
@@ -124,7 +125,7 @@ class _DeductionCalendarState extends State<DeductionCalendar> {
               },
             ),
           ),
-          SizedBox(height: 10),
+          SizedBox(height: 10.h),
           NoMenuText(
               _selectedDay!.year, _selectedDay!.month, _selectedDay!.day),
           ...List.generate(
@@ -143,10 +144,11 @@ class _DeductionCalendarState extends State<DeductionCalendar> {
                   decoration: BoxDecoration(
                     border: Border.all(color: Colors.black54),
                     borderRadius: BorderRadius.circular(10),
+                    color: Colors.white,
                     boxShadow: [
                       BoxShadow(
                         color: Colors.grey,
-                        blurRadius: 10,
+                        blurRadius: 5,
                         spreadRadius: 0.01,
                       ),
                     ],
@@ -187,6 +189,20 @@ class _DeductionCalendarState extends State<DeductionCalendar> {
       ),
     );
   }
+
+  Widget _selectedBuilder(context, DateTime date, focusedDay) {
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.lightGreen[300],
+        shape: BoxShape.circle,
+      ),
+      child: Center(
+        child: Text(
+          date.day.toString(),
+        ),
+      ),
+    );
+  }
 }
 
 class NoMenuText extends StatelessWidget {
@@ -206,7 +222,7 @@ class NoMenuText extends StatelessWidget {
             child: Text(
               "식사 제공 없는 날",
               style: TextStyle(
-                  fontSize: 20,
+                  fontSize: 20.sp,
                   fontWeight: FontWeight.bold,
                   color: Colors.grey),
             ),

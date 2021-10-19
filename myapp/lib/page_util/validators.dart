@@ -45,6 +45,16 @@ Function validateEmail() {
   };
 }
 
+Function validateEmpty() {
+  return (String? value) {
+    if (value!.isEmpty) {
+      return "Email을 기입하십시오.";
+    } else {
+      return null;
+    }
+  };
+}
+
 Function validateTitle() {
   return (String? value) {
     if (value!.isEmpty) {

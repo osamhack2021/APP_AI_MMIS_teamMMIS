@@ -46,8 +46,6 @@ class ShowPhotoOfMealPage extends StatelessWidget {
     ByteData bytes = await rootBundle.load("meal_photos/example_1.jpg");
     var buffer = bytes.buffer;
     String m = base64.encode(Uint8List.view(buffer));
-    print(m.length);
-    print(m.runtimeType);
   }
 
   Widget _buildHeader(BuildContext context) {

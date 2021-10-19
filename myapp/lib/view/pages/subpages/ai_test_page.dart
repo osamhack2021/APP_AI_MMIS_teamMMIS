@@ -161,7 +161,7 @@ class _AiTestPageState extends State<AiTestPage> {
                       )),
                   Spacer(),
                   Text(
-                    "${ai.principal.value.score}",
+                    "5점",
                     style: TextStyle(
                         fontSize: 32.sp,
                         fontWeight: FontWeight.bold,
@@ -245,61 +245,58 @@ class _AiTestPageState extends State<AiTestPage> {
     CMRespDto cmResDto = CMRespDto.fromJson(a);
     ai.principal.value = AI.fromJson(cmResDto.data);
 
-    return Obx(
-      () => Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: List.generate(ai.principal.value.getRecommendation().length,
-            (index) {
-          Recommendation recommendation =
-              ai.principal.value.getRecommendation()[index];
-          return InkWell(
-            onTap: () {
-              String pass = "";
-              for (String i in recommendation.menus!) {
-                pass += "$i, ";
-              }
-              Get.to(
-                () => WriteSuggestionPage(
-                  title: "다음 메뉴 건의합니다.",
-                  content: pass,
-                ),
-              );
-            },
-            child: Container(
-              width: 0.3.sw,
-              decoration: BoxDecoration(
-                  color: Colors.white,
-                  border: Border.all(color: Colors.grey),
-                  borderRadius: BorderRadius.circular(5),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey,
-                      blurRadius: 10,
-                      spreadRadius: 0.1,
-                    )
-                  ]),
-              padding: EdgeInsets.all(8.r),
-              margin: EdgeInsets.all(8.r),
-              child: ListView(
-                children: [
-                  Center(
-                    child: Text(
-                      "${recommendation.score}점",
-                      style: TextStyle(fontSize: 14.sp),
-                    ),
-                  ),
-                  Divider(color: Colors.grey),
-                  Column(
-                    children: recommendation.menus!
-                        .map((menu) => Text(menu))
-                        .toList(),
-                  ),
-                ],
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children:
+          List.generate(ai.principal.value.getRecommendation().length, (index) {
+        Recommendation recommendation =
+            ai.principal.value.getRecommendation()[index];
+        return InkWell(
+          onTap: () {
+            String pass = "";
+            for (String i in recommendation.menus!) {
+              pass += "$i, ";
+            }
+            Get.to(
+              () => WriteSuggestionPage(
+                title: "다음 메뉴 건의합니다.",
+                content: pass,
               ),
+            );
+          },
+          child: Container(
+            width: 0.3.sw,
+            decoration: BoxDecoration(
+                color: Colors.white,
+                border: Border.all(color: Colors.grey),
+                borderRadius: BorderRadius.circular(5),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey,
+                    blurRadius: 10,
+                    spreadRadius: 0.1,
+                  )
+                ]),
+            padding: EdgeInsets.all(8.r),
+            margin: EdgeInsets.all(8.r),
+            child: ListView(
+              children: [
+                Center(
+                  child: Text(
+                    "${recommendation.score}점",
+                    style: TextStyle(fontSize: 14.sp),
+                  ),
+                ),
+                Divider(color: Colors.grey),
+                Column(
+                  children:
+                      recommendation.menus!.map((menu) => Text(menu)).toList(),
+                ),
+              ],
             ),
-          );
-        }),
-      ),
+          ),
+        );
+      }),
     );
   }
 }

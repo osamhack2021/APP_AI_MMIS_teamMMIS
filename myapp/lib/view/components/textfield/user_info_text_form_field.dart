@@ -5,15 +5,13 @@ class UserInfoTextFormField extends StatelessWidget {
   final String text;
   final String? info;
   final enabled;
-  final int? n;
   final validator;
-  final obscureText;
+  final bool? obscureText;
   TextEditingController? controller;
   UserInfoTextFormField({
     required this.text,
     this.info,
     this.enabled,
-    this.n = 10,
     this.controller,
     this.validator,
     this.obscureText,
@@ -28,7 +26,7 @@ class UserInfoTextFormField extends StatelessWidget {
         ),
         SizedBox(height: 8.h),
         TextFormField(
-          obscureText: obscureText,
+          obscureText: obscureText!,
           validator: validator,
           enabled: enabled,
           controller: controller,

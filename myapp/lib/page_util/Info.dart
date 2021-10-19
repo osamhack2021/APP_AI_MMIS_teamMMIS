@@ -75,7 +75,16 @@ class MilitaryUnit {
 }
 
 class Menus {
-  static List<String> menus = [];
+  static List<String> menus = [
+    "고순조",
+    "밥",
+    "김치찌개",
+    "닭각정",
+    "영양밥",
+    "야채샐러드",
+    "콩나물국",
+    "버섯된장국"
+  ];
 
   static List<String> getSuggestions(String query) {
     List<String> matches = <String>[];

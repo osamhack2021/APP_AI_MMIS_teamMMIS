@@ -50,27 +50,37 @@ class UserEditPage extends StatelessWidget {
           child: ListView(
             children: [
               UserInfoTextFormField(
+                  obscureText: false,
+                  info: "",
                   text: "소속",
                   controller: unitController,
                   enabled: true,
                   validator: validateUnit()),
               UserInfoTextFormField(
+                  obscureText: false,
+                  info: "",
                   text: "계급",
                   controller: classController,
                   enabled: true,
                   validator: validateClass()),
               UserInfoTextFormField(
+                  obscureText: false,
+                  info: "",
+                  text: "군번",
+                  controller: TextEditingController(),
+                  enabled: false,
+                  validator: validateClass()),
+              UserInfoTextFormField(
+                  obscureText: false,
+                  info: "",
                   text: "이름",
                   controller: nameController,
                   enabled: true,
                   validator: validateName()),
               UserInfoTextFormField(
+                  obscureText: false,
+                  info: "비밀번호",
                   text: "비밀번호",
-                  controller: nameController,
-                  enabled: true,
-                  validator: validatePassWorld()),
-              UserInfoTextFormField(
-                  text: "이름",
                   controller: nameController,
                   enabled: true,
                   validator: validatePassWorld()),
@@ -109,9 +119,7 @@ class UserEditPage extends StatelessWidget {
                   ),
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
-                      userName = nameController.text;
-                      unit = unitController.text;
-                      classes = classController.text;
+                      //여기 통신
                       userAllergy = {...localUserAllergy};
                       Get.to(() => FramePage());
                       Get.snackbar("저장완료", "정보가 저장되었습니다.",

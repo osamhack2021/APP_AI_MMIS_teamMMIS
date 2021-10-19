@@ -49,6 +49,7 @@ class _RateMenuPageState extends State<RateMenuPage> {
 
   @override
   Widget build(BuildContext context) {
+    rate = 0;
     time = getTimeFromDateAndTime(dateAndTime);
     List<String> menuKeys = widget.menuMap.keys.toList();
     isEating = checkIfEating(dateAndTime, time);
@@ -197,7 +198,6 @@ class _RateMenuPageState extends State<RateMenuPage> {
         children: List.generate(
           menuList.length,
           (index) {
-            print(index);
             return Column(
               children: [
                 _menuTitle(menuList, index),
@@ -280,6 +280,16 @@ class _RateMenuPageState extends State<RateMenuPage> {
                     ),
                   ),
                   onRatingUpdate: (score) {
+                    showDialog(
+                      context: context,
+                      barrierDismissible: false,
+                      builder: (context) => AlertDialog(
+                        content: Text("저장되었습니다."),
+                        actions: [
+                          CustomBackButton(text: "닫기"),
+                        ],
+                      ),
+                    );
                     setState(() {
                       rate = score;
                     });
@@ -307,40 +317,42 @@ class _RateMenuPageState extends State<RateMenuPage> {
         onPressed: () {
           setState(() {
             if (isEating!) {
-              showDialog(
-                  context: context,
-                  barrierDismissible: false,
-                  builder: (context) {
-                    List valueList = ["당직", "휴가", "외출", "근무", "기타"];
-                    var _selectedValue = valueList[0];
-                    return AlertDialog(
-                      content: DropdownButton(
-                        value: _selectedValue,
-                        items: valueList
-                            .map((value) => DropdownMenuItem(
-                                  child: Text(value),
-                                  value: value,
-                                ))
-                            .toList(),
-                        onChanged: (value) {
-                          _selectedValue = value;
-                        },
-                      ),
-                      actions: [
-                        Row(
-                          children: [
-                            ElevatedButton(
-                              onPressed: () {
-                                print(_selectedValue);
-                              },
-                              child: Text("신청하기"),
-                            ),
-                            CustomBackButton(text: '취소'),
-                          ],
-                        ),
-                      ],
-                    );
-                  });
+              // showDialog(
+              //     context: context,
+              //     barrierDismissible: false,
+              //     builder: (context) {
+              //       List valueList = ["당직", "휴가", "외출", "근무", "기타"];
+              //       var _selectedValue = valueList[0];
+              //       return AlertDialog(
+              //         content: DropdownButton(
+              //           value: _selectedValue,
+              //           items: valueList
+              //               .map((value) => DropdownMenuItem(
+              //                     child: Text(value),
+              //                     value: value,
+              //                   ))
+              //               .toList(),
+              //           onChanged: (value) {
+              //             _selectedValue = value;
+              //           },
+              //         ),
+              //         actions: [
+              //           Row(
+              //             children: [
+              //               ElevatedButton(
+              //                 onPressed: () {
+              //                   setState(() {
+              //                     _selectedValue = value;
+              //                   });
+              //                 },
+              //                 child: Text("신청하기"),
+              //               ),
+              //               CustomBackButton(text: '취소'),
+              //             ],
+              //           ),
+              //         ],
+              //       );
+              //     });
               addUserNotEating(dateAndTime, time);
               isEating = false;
               showDialog(

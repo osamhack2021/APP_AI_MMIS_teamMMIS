@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:myapp/controller/user_controller.dart';
+import 'package:myapp/page_util/validators.dart';
 import 'package:myapp/user/user_ex.dart';
 import 'package:myapp/view/components/textfield/user_info_text_form_field.dart';
 import 'package:myapp/view/pages/subpages/user_edit_page.dart';
@@ -35,24 +36,43 @@ class UserInfoPage extends StatelessWidget {
         child: ListView(
           children: [
             UserInfoTextFormField(
+              validator: validateEmpty(),
+              controller: TextEditingController(),
+              obscureText: false,
               text: "소속",
               info: "${u.principal.value.unit}",
               enabled: false,
             ),
             UserInfoTextFormField(
+              validator: validateEmpty(),
+              controller: TextEditingController(),
+              obscureText: false,
               text: "계급",
               info: "${u.principal.value.rank}",
               enabled: false,
             ),
             UserInfoTextFormField(
+              validator: validateEmpty(),
+              controller: TextEditingController(),
+              obscureText: false,
+              text: "군번",
+              info: "${u.principal.value.militaryNumber}",
+              enabled: false,
+            ),
+            UserInfoTextFormField(
+              validator: validateEmpty(),
+              controller: TextEditingController(),
+              obscureText: false,
               text: "이름",
               info: "${u.principal.value.username}",
               enabled: false,
             ),
             UserInfoTextFormField(
+              validator: validateEmpty(),
+              controller: TextEditingController(),
               obscureText: true,
               text: "비밀번호",
-              info: "aaaaaaaaaa",
+              info: "*********",
               enabled: false,
             ),
             Divider(),

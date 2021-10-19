@@ -16,39 +16,11 @@ class Survey {
 
 Map<String, dynamic> DumSurvey = {
   "id": "1",
-  "title": "설문제목입니다.",
-  "explain": "설문설명입니다",
+  "title": "21-3차 급식 만족도 설문조사입니다.",
+  "explain": "성의껏 답변 부탁드립니다.",
   "questions": [
     {
       "id": "1",
-      "text": "예시 질문입니다.",
-      "type": "객관식",
-      "isOptional": "yes",
-      // 선지입니다.
-      "options": [
-        "매우 좋음",
-        "좋음",
-        "보통",
-        "별로",
-        "아주 별로",
-      ],
-    },
-    {
-      "id": "2",
-      "text": "예시 질문입니다.",
-      "type": "다수선택",
-      "isOptional": "no",
-      // 선지입니다.
-      "options": [
-        "매우 좋음",
-        "좋음",
-        "보통",
-        "별로",
-        "아주 별로",
-      ],
-    },
-    {
-      "id": "3",
       "text": "예시 질문입니다.",
       "type": "단답식",
       "isOptional": "no",
@@ -56,10 +28,24 @@ Map<String, dynamic> DumSurvey = {
       "options": [],
     },
     {
-      "id": "4",
-      "text": "예시 질문입니다.",
-      "type": "장문형",
-      "isOptional": "yes",
+      "id": "2",
+      "text": "가장 좋아하는 메뉴는 무엇입니까?",
+      "type": "다수선택",
+      "isOptional": "no",
+      // 선지입니다.
+      "options": [
+        "피자",
+        "치킨",
+        "라면",
+        "통닭",
+        "없음",
+      ],
+    },
+    {
+      "id": "3",
+      "text": "급식 관련 의견을 자유롭게 써주세요",
+      "type": "단답식",
+      "isOptional": "no",
       // 선지입니다.
       "options": [],
     },
