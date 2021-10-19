@@ -1,6 +1,7 @@
 // 공지사항 관리 페이지
 
 import 'package:admin/controller/suggestion_controller.dart';
+import 'package:admin/model/notice.dart';
 import 'package:admin/size.dart';
 import 'package:admin/util/editDateFormat.dart';
 
@@ -106,48 +107,44 @@ class _SuggestionPageState extends State<SuggestionPage> {
   }
 
   Widget _suggestionList(BuildContext context, double mediaWidth) {
-    return Obx(
-      () => Column(
-        children: List.generate(15, (int index) {
-          String title;
-          String writer;
-          String date;
-          String content;
-          int id;
-          index += 15 * (_currentPage - 1);
-          try {
-            title = s.suggestions[index].title!;
+    return Column(
+      children: List.generate(15, (int index) {
+        String title;
+        String writer;
+        String date;
+        String content;
+        int id;
+        index += 15 * (_currentPage - 1);
+        try {
+          title = dummySuggestion[index]["제목"];
 
-            writer = s.suggestions[index].writer == null
-                ? "이름없음"
-                : s.suggestions[index].writer!["name"];
-            date = editDateFormat(s.suggestions[index].updated!);
-            content = s.suggestions[index].content!;
-            id = s.suggestions[index].id!;
-          } catch (e) {
-            title = "";
-            writer = "";
-            date = "";
-            content = "";
-            id = -1;
-          }
-          return Padding(
-            padding: const EdgeInsets.symmetric(vertical: 8.0),
-            child: id != -1
-                ? InkWell(
-                    onTap: () {
-                      _showContentDialog(context, title, content, id);
-                    },
-                    child: mediaWidth > 850
-                        ? _contentForWide(index, title, writer, date)
-                        : _contentForNarrow(index, title, writer, date),
-                  )
-                : InkWell(
-                    child: _contentForWide(index, title, writer, date),
-                  ),
-          );
-        }),
-      ),
+          writer = dummySuggestion[index]["작성자"];
+          date = dummySuggestion[index]["작성날짜"];
+          content = dummySuggestion[index]["내용"];
+          id = 1;
+        } catch (e) {
+          title = "";
+          writer = "";
+          date = "";
+          content = "";
+          id = -1;
+        }
+        return Padding(
+          padding: const EdgeInsets.symmetric(vertical: 8.0),
+          child: id != -1
+              ? InkWell(
+                  onTap: () {
+                    _showContentDialog(context, title, content, id);
+                  },
+                  child: mediaWidth > 850
+                      ? _contentForWide(index, title, writer, date)
+                      : _contentForNarrow(index, title, writer, date),
+                )
+              : InkWell(
+                  child: _contentForWide(index, title, writer, date),
+                ),
+        );
+      }),
     );
   }
 
@@ -249,10 +246,8 @@ class _SuggestionPageState extends State<SuggestionPage> {
     );
   }
 
-  Future<dynamic> _showContentDialog(
-      BuildContext context, String title, String content, int id) async {
-    await s.findById(id);
-
+  _showContentDialog(
+      BuildContext context, String title, String content, int id) {
     return showDialog(
       context: context,
       builder: (context) {

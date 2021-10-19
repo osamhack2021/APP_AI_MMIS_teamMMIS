@@ -1,4 +1,5 @@
 import 'package:admin/controller/survey_controller.dart';
+import 'package:admin/model/survey.dart';
 import 'package:admin/size.dart';
 import 'package:admin/util/validators.dart';
 import 'package:admin/view/components/home/customTitle.dart';
@@ -89,16 +90,22 @@ class _CreateSurveyPageState extends State<CreateSurveyPage> {
                     Spacer(),
                     ElevatedButton(
                       onPressed: () async {
-                        title = surveyTitleFormField.titleController.text;
-                        explain = surveyTitleFormField.explainController.text;
-                        final sc = Get.put(SurveyController());
-                        String seq = DateTime.now().toString();
-                        int a =
-                            await sc.postSurvey(title, explain, seq, questions);
-                        if (a == 1) {
-                          Get.back();
-                        }
+                        dummySurvey.insert(
+                            0,
+                            FakeSurvey("21-3차 급식 만족도 설문조사입니다.", "관리자",
+                                "2021.10.19", []));
+                        Get.back();
                       },
+                      //   title = surveyTitleFormField.titleController.text;
+                      //   explain = surveyTitleFormField.explainController.text;
+                      //   final sc = Get.put(SurveyController());
+                      //   String seq = DateTime.now().toString();
+                      //   int a =
+                      //       await sc.postSurvey(title, explain, seq, questions);
+                      //   if (a == 1) {
+                      //     Get.back();
+                      //   }
+                      // },
                       child: Text("생성하기"),
                     ),
                     SizedBox(width: gap_m),

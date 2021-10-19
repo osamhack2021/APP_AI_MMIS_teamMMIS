@@ -37,7 +37,7 @@ class WrittenCommentBox extends StatelessWidget {
               borderRadius: BorderRadius.circular(5),
             ),
             disabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.grey),
+              borderSide: BorderSide(color: Colors.grey[200]!),
               borderRadius: BorderRadius.circular(5),
             )),
       ),

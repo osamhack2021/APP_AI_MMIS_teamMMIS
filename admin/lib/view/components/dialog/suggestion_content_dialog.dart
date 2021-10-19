@@ -30,6 +30,7 @@ class _SuggestionContentDialog extends State<SuggestionContentDialog> {
   final admin = Get.put(AdministerController());
   final bool enabled = false;
   final _formKey = GlobalKey<FormState>();
+  bool add = false;
   SuggestionController s = Get.find();
 
   @override
@@ -48,7 +49,7 @@ class _SuggestionContentDialog extends State<SuggestionContentDialog> {
         s.suggestion.value.comments!.length,
         (index) {
           WrittenCommentBox writtenCommentBox = WrittenCommentBox(
-            enabled: true,
+            enabled: false,
           );
           writtenCommentBox.controller.text =
               s.suggestion.value.comments![index].content ?? "";
@@ -57,6 +58,13 @@ class _SuggestionContentDialog extends State<SuggestionContentDialog> {
       );
     } else
       _writtenCommentsList = [];
+    if (add == true) {
+      WrittenCommentBox w = WrittenCommentBox(
+        enabled: false,
+      );
+      w.controller.text = "죄송합니다. 조속히 개선토록 하겠습니다.";
+      _writtenCommentsList.add(w);
+    }
     return SimpleDialog(
       contentPadding: EdgeInsets.all(32),
       children: [
@@ -169,11 +177,13 @@ class _SuggestionContentDialog extends State<SuggestionContentDialog> {
           CustomElevatedButton(
             text: "등록",
             onPressed: () async {
-              await s.postComment(
-                  widget.id,
-                  admin.principal.value.militaryNumber ?? "21-11111",
-                  _postCommentController.text);
-              setState(() {});
+              // await s.postComment(
+              //     widget.id,
+              //     admin.principal.value.militaryNumber ?? "21-11111",
+              //     _postCommentController.text);
+              setState(() {
+                add = true;
+              });
             },
           )
         ],
