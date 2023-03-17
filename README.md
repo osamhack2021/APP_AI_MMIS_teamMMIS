@@ -280,7 +280,7 @@ $ cd forever start app.js
 
 
 ## 팀 정보 (Team Information)
-- 최윤호(팀장 : 프론트엔드/인공지능) (potatohead12@gmail.com), Github Id: potatohead12
+- 최윤호(팀장 : 프론트엔드) (potatohead12@gmail.com), Github Id: potatohead12
 - 문철운(팀원 : 프론트엔드)(heiyin315@gmail.com), Github Id: cjfdns007
 - 성민(팀원 : 백엔드) (pho0570@gmail.com), Github Id: mini-777
 - 성준혁(팀원 : 백엔드) (sungjjh9707@gmail.com), Github Id: sungjjss9707
